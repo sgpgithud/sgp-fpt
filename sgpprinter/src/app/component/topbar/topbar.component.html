@@ -1,0 +1,45 @@
+<header class="navbar" role="banner">
+
+    <div class="container">
+
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <i class="fa fa-cog"></i>
+            </button>
+
+            <a href="index.html" class="navbar-brand navbar-brand-img">
+                <img src="assets/img/logo.png" alt="SGP">
+            </a>
+        </div> <!-- /.navbar-header -->
+
+        <nav class="collapse navbar-collapse" role="navigation">
+
+            <ul class="nav navbar-nav navbar-right">
+
+
+                <li class="dropdown navbar-profile">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;">
+                        {{user}}
+                        <i class="fa fa-caret-down"></i>
+                    </a>
+
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a (click)="logout()">
+                                <i class="fa fa-sign-out"></i>
+                                &nbsp;&nbsp;Thoát
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </div> <!-- /.container -->
+
+</header>
