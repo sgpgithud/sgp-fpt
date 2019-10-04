@@ -1,0 +1,398 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SAIGONPOSTDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PMSUser" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="PostID" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="CusID" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+  </EntityType>
+  <EntityType Name="CustomerAddress">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CusName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CusAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CusProvinceId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CusPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="District">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LatiLongTude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProvinceId" Type="Int32" Nullable="false" />
+    <Property Name="SortOrder" Type="Int32" />
+    <Property Name="IsPublished" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="DistrictPMS" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MailerInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MailerID" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="UserSend" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="ReceiverAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReceiverName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="ReceiverPhone" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="ReceiverDistrict" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="OrderContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OrderNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OrderWeight" Type="Double" />
+    <Property Name="OrderQuality" Type="Double" />
+    <Property Name="OrderService" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="OrderType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="OrderWidth" Type="Double" />
+    <Property Name="OrderHeight" Type="Double" />
+    <Property Name="OrderLength" Type="Double" />
+    <Property Name="OrderCode" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="UserTake" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+    <Property Name="CurrentStatus" Type="Int32" />
+    <Property Name="StatusNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Double" />
+    <Property Name="ServicePrice" Type="Double" />
+    <Property Name="ReceiverProvince" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="COD" Type="Double" />
+    <Property Name="SGPStatus" Type="Int32" />
+    <Property Name="PostID" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="SenderName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SenderAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SenderPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="SenderProvinceID" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="SenderDistrictID" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="PaymentType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="PriceCOD" Type="Double" />
+    <Property Name="Dimension" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CommitmentDate" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="SendToWavehoure" Type="Int32" />
+    <Property Name="ReceiverProvincePMS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ReceiverDistrictPMS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SenderProvinceIDPMS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SenderDistrictIDPMS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SendId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="DeliveryTo" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="DeliveryDate" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="DeliveryNote" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeePhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CurrentPost" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SGPStatusName" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="TakeDate" Type="DateTime" Precision="3" />
+    <Property Name="SenderContactName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="ReceiverContactName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="OrderItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderId" Type="Int64" />
+    <Property Name="PackagetName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PackageWeight" Type="Double" />
+    <Property Name="PackageDimension" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PartnerAccount">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PartnerName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="PartnerCode" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Token" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="APIUrl" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PostOffice">
+    <Key>
+      <PropertyRef Name="PostOfficeID" />
+    </Key>
+    <Property Name="PostOfficeID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="PostOfficeName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="ZoneID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ProvinceID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="DistrictID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Province">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TelephoneCode" Type="Int32" />
+    <Property Name="ZipCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CountryId" Type="Int32" Nullable="false" />
+    <Property Name="CountryCode" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="SortOrder" Type="Int32" />
+    <Property Name="IsPublished" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="ProvincePMS" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="StatusID" />
+    </Key>
+    <Property Name="StatusID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="StatusName" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TrackingOrder">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderId" Type="Int64" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="StatusName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="CurrentPost" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ProvinceId" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="DistrictId" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="SAIGONPOSTDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+    <EntitySet Name="CustomerAddresses" EntityType="Self.CustomerAddress" />
+    <EntitySet Name="Districts" EntityType="Self.District" />
+    <EntitySet Name="MailerInfoes" EntityType="Self.MailerInfo" />
+    <EntitySet Name="OrderItems" EntityType="Self.OrderItem" />
+    <EntitySet Name="PartnerAccounts" EntityType="Self.PartnerAccount" />
+    <EntitySet Name="PostOffices" EntityType="Self.PostOffice" />
+    <EntitySet Name="Provinces" EntityType="Self.Province" />
+    <EntitySet Name="Status" EntityType="Self.Status" />
+    <EntitySet Name="TrackingOrders" EntityType="Self.TrackingOrder" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <FunctionImport Name="get_mailer_fpt" ReturnType="Collection(SAIGONPOSTDBModel.get_mailer_fpt_Result)">
+      <Parameter Name="orderid" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="get_mailers" ReturnType="Collection(SAIGONPOSTDBModel.get_mailers_Result)">
+      <Parameter Name="fdate" Mode="In" Type="String" />
+      <Parameter Name="tdate" Mode="In" Type="String" />
+      <Parameter Name="mailerid" Mode="In" Type="String" />
+      <Parameter Name="cusid" Mode="In" Type="String" />
+      <Parameter Name="postId" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="get_mailer_fpt_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="MailerID" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="UserSend" Nullable="true" MaxLength="512" />
+    <Property Type="String" Name="CustomerId" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="ReceiverAddress" Nullable="true" />
+    <Property Type="String" Name="ReceiverName" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="ReceiverPhone" Nullable="true" MaxLength="45" />
+    <Property Type="String" Name="ReceiverDistrict" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="OrderContent" Nullable="true" />
+    <Property Type="String" Name="OrderNote" Nullable="true" />
+    <Property Type="Double" Name="OrderWeight" Nullable="true" />
+    <Property Type="Double" Name="OrderQuality" Nullable="true" />
+    <Property Type="String" Name="OrderService" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="OrderType" Nullable="true" MaxLength="100" />
+    <Property Type="Double" Name="OrderWidth" Nullable="true" />
+    <Property Type="Double" Name="OrderHeight" Nullable="true" />
+    <Property Type="Double" Name="OrderLength" Nullable="true" />
+    <Property Type="String" Name="OrderCode" Nullable="true" MaxLength="512" />
+    <Property Type="String" Name="CreateDate" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="CreateTime" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="ModifyDate" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="ModifyTime" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="TakeDate" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="TakeTime" Nullable="true" MaxLength="30" />
+    <Property Type="Int32" Name="CurrentStatus" Nullable="true" />
+    <Property Type="String" Name="StatusNotes" Nullable="true" />
+    <Property Type="Double" Name="Price" Nullable="true" />
+    <Property Type="Double" Name="ServicePrice" Nullable="true" />
+    <Property Type="String" Name="ReceiverProvince" Nullable="true" MaxLength="50" />
+    <Property Type="Double" Name="COD" Nullable="true" />
+    <Property Type="String" Name="PostID" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="SenderName" Nullable="true" />
+    <Property Type="String" Name="SenderAddress" Nullable="true" />
+    <Property Type="String" Name="SenderPhone" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="SenderProvinceID" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="PaymentType" Nullable="true" MaxLength="20" />
+    <Property Type="Double" Name="PriceCOD" Nullable="true" />
+    <Property Type="String" Name="Dimension" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="CommitmentDate" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="SendToWavehoure" Nullable="true" />
+    <Property Type="String" Name="ReceiverProvincePMS" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ReceiverDistrictPMS" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SenderProvinceIDPMS" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SenderDistrictIDPMS" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SendId" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="EmployeeId" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="EmployeeName" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="DeliveryTo" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="DeliveryDate" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="DeliveryNote" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="EmployeePhone" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SGPStatusName" Nullable="true" MaxLength="512" />
+    <Property Type="String" Name="SenderContactName" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="ReceiverContactName" Nullable="true" MaxLength="1000" />
+  </ComplexType>
+  <ComplexType Name="get_mailers_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="MailerID" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="UserSend" Nullable="true" MaxLength="512" />
+    <Property Type="String" Name="CustomerId" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="ReceiverAddress" Nullable="true" />
+    <Property Type="String" Name="ReceiverName" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="ReceiverPhone" Nullable="true" MaxLength="45" />
+    <Property Type="String" Name="ReceiverDistrict" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="OrderContent" Nullable="true" />
+    <Property Type="String" Name="OrderNote" Nullable="true" />
+    <Property Type="Double" Name="OrderWeight" Nullable="true" />
+    <Property Type="Double" Name="OrderQuality" Nullable="true" />
+    <Property Type="String" Name="OrderService" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="OrderType" Nullable="true" MaxLength="100" />
+    <Property Type="Double" Name="OrderWidth" Nullable="true" />
+    <Property Type="Double" Name="OrderHeight" Nullable="true" />
+    <Property Type="Double" Name="OrderLength" Nullable="true" />
+    <Property Type="String" Name="OrderCode" Nullable="true" MaxLength="512" />
+    <Property Type="String" Name="CreateDate" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="CreateTime" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="ModifyDate" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="ModifyTime" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="TakeDate" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="TakeTime" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="UserTake" Nullable="true" MaxLength="512" />
+    <Property Type="Int32" Name="CurrentStatus" Nullable="true" />
+    <Property Type="String" Name="StatusNotes" Nullable="true" />
+    <Property Type="Double" Name="Price" Nullable="true" />
+    <Property Type="Double" Name="ServicePrice" Nullable="true" />
+    <Property Type="String" Name="ReceiverProvince" Nullable="true" MaxLength="50" />
+    <Property Type="Double" Name="COD" Nullable="true" />
+    <Property Type="Double" Name="PriceCOD" Nullable="true" />
+    <Property Type="Int32" Name="SGPStatus" Nullable="true" />
+    <Property Type="String" Name="PostID" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="SenderName" Nullable="true" />
+    <Property Type="String" Name="SenderAddress" Nullable="true" />
+    <Property Type="String" Name="SenderPhone" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="SenderProvinceID" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="PaymentType" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="ReceiverProvincePMS" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ReceiverDistrictPMS" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SenderProvinceIDPMS" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SenderDistrictIDPMS" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SendId" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="EmployeeId" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="EmployeeName" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="DeliveryTo" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="DeliveryDate" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="DeliveryNote" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="EmployeePhone" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SGPStatusName" Nullable="true" MaxLength="512" />
+    <Property Type="String" Name="SenderContactName" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="ReceiverContactName" Nullable="true" MaxLength="1000" />
+  </ComplexType>
+</Schema>

@@ -1,0 +1,914 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://pms.sgp.vn/SGPService/SGPService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SGPWebService.DB" />
+  <xs:import schemaLocation="http://pms.sgp.vn/SGPService/SGPService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SGPWebService.DataClass" />
+  <xs:element name="login">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pass" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="post" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="loginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getmaxMailerID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="postoffice" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getmaxMailerIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getmaxMailerIDResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getProvince">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getProvinceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SGPWebService.DB" minOccurs="0" name="getProvinceResult" nillable="true" type="q1:ArrayOfBS_Province" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertSGP_Province_Zones">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ZoneID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ProvinceID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Zone" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertSGP_Province_ZonesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="insertSGP_Province_ZonesResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getServiceType">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getServiceTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SGPWebService.DB" minOccurs="0" name="getServiceTypeResult" nillable="true" type="q2:ArrayOfMM_ServiceType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCustomer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PostOfficeID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCustomerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SGPWebService.DB" minOccurs="0" name="getCustomerResult" nillable="true" type="q3:ArrayOfMM_Customer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getZoneList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getZoneListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SGPWebService.DataClass" minOccurs="0" name="getZoneListResult" nillable="true" type="q4:ArrayOfZoneList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getmaxZone">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ZoneID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getmaxZoneResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getmaxZoneResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertSGP_Price_Policy">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PriceID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PostOfficeID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="Status" type="xs:int" />
+        <xs:element minOccurs="0" name="Service" type="xs:int" />
+        <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ZoneID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CalPrice" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertSGP_Price_PolicyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="insertSGP_Price_PolicyResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertSGP_Price_Customer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PriceID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertSGP_Price_CustomerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="insertSGP_Price_CustomerResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertSGP_Price_Service">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PriceID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ServiceID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertSGP_Price_ServiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="insertSGP_Price_ServiceResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertSGP_Price_Value">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PriceID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FW" type="xs:float" />
+        <xs:element minOccurs="0" name="TW" type="xs:float" />
+        <xs:element minOccurs="0" name="Zone" type="xs:int" />
+        <xs:element minOccurs="0" name="Price" type="xs:float" />
+        <xs:element minOccurs="0" name="CalType" type="xs:int" />
+        <xs:element minOccurs="0" name="RowIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="ColumnIndex" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertSGP_Price_ValueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="insertSGP_Price_ValueResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPricePolicy">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPricePolicyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SGPWebService.DB" minOccurs="0" name="getPricePolicyResult" nillable="true" type="q5:ArrayOfSGP_Price_Policy" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPriceCustomer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PriceID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPriceCustomerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SGPWebService.DB" minOccurs="0" name="getPriceCustomerResult" nillable="true" type="q6:ArrayOfSGP_Price_Customer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPriceService">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PriceID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPriceServiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SGPWebService.DB" minOccurs="0" name="getPriceServiceResult" nillable="true" type="q7:ArrayOfSGP_Price_Service" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPriceValue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PriceID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPriceValueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SGPWebService.DB" minOccurs="0" name="getPriceValueResult" nillable="true" type="q8:ArrayOfSGP_Price_Value" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPriceServiceValue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PriceID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPriceServiceValueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SGPWebService.DB" minOccurs="0" name="getPriceServiceValueResult" nillable="true" type="q9:ArrayOfSGP_Price_Service_Value" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="calPrice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Quantity" type="xs:int" />
+        <xs:element minOccurs="0" name="Weight" type="xs:float" />
+        <xs:element minOccurs="0" name="ProvinceID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ServiceType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Price" type="xs:float" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="calPriceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SGPWebService.DataClass" minOccurs="0" name="calPriceResult" nillable="true" type="q10:ArrayOfPriceList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getUserTrackingProfile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="User" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getUserTrackingProfileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SGPWebService.DB" minOccurs="0" name="getUserTrackingProfileResult" nillable="true" type="q11:ArrayOfTools_Tracking" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ToolTracking">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MailerID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ToolTrackingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SGPWebService.DataClass" minOccurs="0" name="ToolTrackingResult" nillable="true" type="q12:ArrayOfTrackings" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getMailer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MailerID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getMailerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SGPWebService.DataClass" minOccurs="0" name="getMailerResult" nillable="true" type="q13:ArrayOfMailerPPNT" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDisitrct">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProvinceID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDisitrctResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SGPWebService.DataClass" minOccurs="0" name="getDisitrctResult" nillable="true" type="q14:ArrayOfDistrict" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertSGP_ChiPhi">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ctvphat" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ngay" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="cg" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tl" type="xs:double" />
+        <xs:element minOccurs="0" name="lh" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="noiden" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="cptt" type="xs:double" />
+        <xs:element minOccurs="0" name="cpnt" type="xs:double" />
+        <xs:element minOccurs="0" name="bcchapnhan" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="khachang" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="cuoc" type="xs:double" />
+        <xs:element minOccurs="0" name="phuphi" type="xs:double" />
+        <xs:element minOccurs="0" name="quan" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ngaynhan" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="tinh" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bcnhan" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertSGP_ChiPhiResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="insertSGP_ChiPhiResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCPNT">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="FromDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="ToDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="type" type="xs:int" />
+        <xs:element minOccurs="0" name="Post" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCPNTResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SGPWebService.DB" minOccurs="0" name="getCPNTResult" nillable="true" type="q15:ArrayOfSGP_ChiPhi" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addCustomer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="noigui" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="socg" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sochungtuthuve" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sochungtulienquan" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="deliverydate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nodename" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="shiptoaddress" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="province" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="zone" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="customerid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="date" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="hour" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="staff" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="note" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="buucuc" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addCustomerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addCustomerResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getSpCustomer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="buucuc" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="employee" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fromdate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="todate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="type" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getSpCustomerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SGPWebService.DataClass" minOccurs="0" name="getSpCustomerResult" nillable="true" type="q16:ArrayOfSpeCustomer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCustomerID">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCustomerIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SGPWebService.DataClass" minOccurs="0" name="getCustomerIDResult" nillable="true" type="q17:ArrayOfSpCustomer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="changeCustomer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element minOccurs="0" name="date" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="hour" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="deliveryto" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="changeCustomerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="changeCustomerResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addCustomerID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="zoneid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="customerid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="customername" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addCustomerIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addCustomerIDResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addChiTietHoaDon">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="soCT" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="createdate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="soCG" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="cuocDV" type="xs:int" />
+        <xs:element minOccurs="0" name="vat" type="xs:int" />
+        <xs:element minOccurs="0" name="total" type="xs:int" />
+        <xs:element minOccurs="0" name="tenhanghoa" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addChiTietHoaDonResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addChiTietHoaDonResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addHoaDon">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="soCT" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="soHD" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="createdate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addHoaDonResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addHoaDonResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getHoaDon">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Fromdate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="Todate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getHoaDonResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/SGPWebService.DataClass" minOccurs="0" name="getHoaDonResult" nillable="true" type="q18:ArrayOfHoaDon" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getChiTietHoaDon">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="soCT" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getChiTietHoaDonResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/SGPWebService.DataClass" minOccurs="0" name="getChiTietHoaDonResult" nillable="true" type="q19:ArrayOfChiTietHoaDon" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPostOfficeName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="postofficeid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPostOfficeNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getPostOfficeNameResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getUserName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getUserNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getUserNameResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getChiTietHoaDonAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getChiTietHoaDonAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/SGPWebService.DataClass" minOccurs="0" name="getChiTietHoaDonAllResult" nillable="true" type="q20:ArrayOfChiTietHoaDon" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCustomerIDbyPost">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PostOfficeID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCustomerIDbyPostResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/SGPWebService.DataClass" minOccurs="0" name="getCustomerIDbyPostResult" nillable="true" type="q21:ArrayOfCustomers" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCustomerGroup">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCustomerGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/SGPWebService.DataClass" minOccurs="0" name="getCustomerGroupResult" nillable="true" type="q22:ArrayOfCustomerGroup" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCustomerIDbyGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GroupID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCustomerIDbyGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/SGPWebService.DataClass" minOccurs="0" name="getCustomerIDbyGroupResult" nillable="true" type="q23:ArrayOfCustomers" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDHLplan">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="FromDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="ToDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDHLplanResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/SGPWebService.DB" minOccurs="0" name="getDHLplanResult" nillable="true" type="q24:ArrayOfTB_DHLPlan" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateMailerDeliveryDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="mailerid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ngaygio" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="nguoinhan" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="trangthai" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateMailerDeliveryDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateMailerDeliveryDetailResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCustomerIDTab4">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="postofficeid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCustomerIDTab4Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/SGPWebService.DataClass" minOccurs="0" name="getCustomerIDTab4Result" nillable="true" type="q25:ArrayOfgetCustomerIDTab4" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCustomerGroupTab4">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCustomerGroupTab4Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/SGPWebService.DataClass" minOccurs="0" name="getCustomerGroupTab4Result" nillable="true" type="q26:ArrayOfgetCustomerGroupTab4" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getListSpCustomer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="tungay" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="denngay" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="customerid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="buucuc" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="loai" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getListSpCustomerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/SGPWebService.DataClass" minOccurs="0" name="getListSpCustomerResult" nillable="true" type="q27:ArrayOfgetListSpCustomer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getListCGChuaNhapDT">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="tungay" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="denngay" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="buucuc" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getListCGChuaNhapDTResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/SGPWebService.DataClass" minOccurs="0" name="getListCGChuaNhapDTResult" nillable="true" type="q28:ArrayOfCGChuaNhapDT" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getListCGChuaXuatBK">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="tungay" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="denngay" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="buucuc" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getListCGChuaXuatBKResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/SGPWebService.DataClass" minOccurs="0" name="getListCGChuaXuatBKResult" nillable="true" type="q29:ArrayOfCGChuaNhapDT" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPostOffice">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPostOfficeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/SGPWebService.DataClass" minOccurs="0" name="getPostOfficeResult" nillable="true" type="q30:ArrayOfgetPostOffice" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getZone">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getZoneResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/SGPWebService.DataClass" minOccurs="0" name="getZoneResult" nillable="true" type="q31:ArrayOfZoneList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCustomerGroupPMS">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCustomerGroupPMSResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/SGPWebService.DB" minOccurs="0" name="getCustomerGroupPMSResult" nillable="true" type="q32:ArrayOfMM_CustomerGroup" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getListCustomerGroupDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="tungay" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="denngay" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="parameter" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="customergroup" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="loai" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getListCustomerGroupDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/SGPWebService.DataClass" minOccurs="0" name="getListCustomerGroupDetailsResult" nillable="true" type="q33:ArrayOfgetListSpCustomer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getMailerCustomerList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="buucuc" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="employee" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fromdate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="todate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="type" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getMailerCustomerListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/SGPWebService.DataClass" minOccurs="0" name="getMailerCustomerListResult" nillable="true" type="q34:ArrayOfSpeCustomer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insert_DocumentReturn">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DocumentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocumentDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="POD" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PostOfficeID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insert_DocumentReturnResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="insert_DocumentReturnResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_DocumentReturn">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="tungay" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="denngay" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="buucuc" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_DocumentReturnResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/SGPWebService.DataClass" minOccurs="0" name="get_DocumentReturnResult" nillable="true" type="q35:ArrayOfDocumentReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="delete_DocumentReturn">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="POD" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PostOfficeID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="delete_DocumentReturnResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="delete_DocumentReturnResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_DocumentReturnbyPOD">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pod" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_DocumentReturnbyPODResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/SGPWebService.DataClass" minOccurs="0" name="get_DocumentReturnbyPODResult" nillable="true" type="q36:ArrayOfDocumentReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getMM_Distances_procGetById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="postofficeid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="provinceid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getMM_Distances_procGetByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/SGPWebService.DataClass" minOccurs="0" name="getMM_Distances_procGetByIdResult" nillable="true" type="q37:MM_Distances_procGetById" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getMM_PriceMatrix_procGetPriceData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DocumentDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PostOfficeID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ServiceTypeID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ProvinceID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DistanceD" type="xs:int" />
+        <xs:element minOccurs="0" name="PriceMatrixType" type="xs:int" />
+        <xs:element minOccurs="0" name="PriceType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ZoneID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getMM_PriceMatrix_procGetPriceDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/SGPWebService.DataClass" minOccurs="0" name="getMM_PriceMatrix_procGetPriceDataResult" nillable="true" type="q38:PriceMatrix" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getMM_PriceMatrix_procGetPriceDataDEtails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DocumentDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PostOfficeID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ServiceTypeID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ProvinceID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DistanceD" type="xs:int" />
+        <xs:element minOccurs="0" name="PriceMatrixType" type="xs:int" />
+        <xs:element minOccurs="0" name="PriceType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ZoneID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getMM_PriceMatrix_procGetPriceDataDEtailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/SGPWebService.DataClass" minOccurs="0" name="getMM_PriceMatrix_procGetPriceDataDEtailsResult" nillable="true" type="q39:ArrayOfPriceMaTrixDetails" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
