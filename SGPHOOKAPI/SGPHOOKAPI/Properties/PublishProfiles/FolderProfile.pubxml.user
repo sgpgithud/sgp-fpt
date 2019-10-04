@@ -7,7 +7,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <_NewBackgroundProfile>True</_NewBackgroundProfile>
-    <_PublishTargetUrl>D:\5.Le Hoai Nam\001 Sourcecode\SGPHOOKAPI\SGPHOOKAPI\bin\Release\PublishOutput</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\5.Le Hoai Nam\001 Sourcecode\001 SGP FPT\sgp-fpt\SGPHOOKAPI\SGPHOOKAPI\bin\Release\PublishOutput</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="ApplicationInsights.config">
@@ -293,7 +293,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/27/2016 14:50:24</publishTime>
     </File>
     <File Include="bin/SGPHOOKAPI.dll">
-      <publishTime>10/04/2019 12:07:47</publishTime>
+      <publishTime>10/04/2019 15:21:13</publishTime>
     </File>
     <File Include="bin/stdole.dll">
       <publishTime>07/31/2018 11:05:27</publishTime>
@@ -311,7 +311,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/28/2018 13:01:26</publishTime>
     </File>
     <File Include="bin/System.Web.Http.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>11/28/2018 13:01:00</publishTime>
     </File>
     <File Include="bin/System.Web.Http.Owin.dll">
       <publishTime>01/28/2015 04:03:16</publishTime>
@@ -524,7 +524,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/02/2019 15:31:40</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/03/2019 11:40:54</publishTime>
+      <publishTime>10/04/2019 15:21:14</publishTime>
     </File>
   </ItemGroup>
 </Project>

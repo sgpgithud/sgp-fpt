@@ -501,7 +501,7 @@ namespace SGPHOOKAPI.Controllers
                             item.ReceiverAddress = synDataInfo.Dia_chi_phat;
                             item.ReceiverProvincePMS = synDataInfo.Code;
                             item.ReceiverDistrictPMS = synDataInfo.Quan_pms;
-                            item.ServicePrice = Convert.ToDouble(string.IsNullOrEmpty(synDataInfo.Phu_phi) ? "0" : synDataInfo.Fee);
+                            item.ServicePrice = Convert.ToDouble(string.IsNullOrEmpty(synDataInfo.Phu_phi) ? "0" : synDataInfo.Phu_phi);
                             item.CurrentStatus = 3;
                             item.StatusNotes = "Đã nhận hàng";
                             item.TakeDate = DateTime.Now;
