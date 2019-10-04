@@ -293,7 +293,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/27/2016 14:50:24</publishTime>
     </File>
     <File Include="bin/SGPHOOKAPI.dll">
-      <publishTime>10/04/2019 15:21:13</publishTime>
+      <publishTime>10/04/2019 17:33:48</publishTime>
     </File>
     <File Include="bin/stdole.dll">
       <publishTime>07/31/2018 11:05:27</publishTime>
@@ -311,7 +311,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/28/2018 13:01:26</publishTime>
     </File>
     <File Include="bin/System.Web.Http.dll">
-      <publishTime>11/28/2018 13:01:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="bin/System.Web.Http.Owin.dll">
       <publishTime>01/28/2015 04:03:16</publishTime>

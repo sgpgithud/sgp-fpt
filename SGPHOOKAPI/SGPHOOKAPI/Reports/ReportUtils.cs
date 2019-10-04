@@ -56,7 +56,7 @@ namespace SGPHOOKAPI.Reports
                     stream = rptH.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
                     break;
                 default:
-                    stream = rptH.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+                    stream = rptH.ExportToStream(CrystalDecisions.Shared.ExportFormatType.HTML40);
                     break;
             }
 
@@ -89,7 +89,7 @@ namespace SGPHOOKAPI.Reports
                     stream = rptH.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
                     break;
                 default:
-                    stream = rptH.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+                    stream = rptH.ExportToStream(CrystalDecisions.Shared.ExportFormatType.WordForWindows);
                     break;
             }
             rptH.Dispose();
@@ -117,7 +117,7 @@ namespace SGPHOOKAPI.Reports
                     stream = rptH.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
                     break;
                 default:
-                    stream = rptH.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+                    stream = rptH.ExportToStream(CrystalDecisions.Shared.ExportFormatType.WordForWindows);
                     break;
             }
             rptH.Dispose();

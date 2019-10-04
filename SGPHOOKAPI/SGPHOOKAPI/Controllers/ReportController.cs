@@ -7,19 +7,18 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Web.Http;
 using System.Web.Http.Cors;
 using SGPHOOKAPI.Utils;
+using System.Web.Mvc;
 
 namespace SGPHOOKAPI.Controllers
 {
-    public class ReportController : ApiController
+    public class ReportController : Controller
     {
         SAIGONPOSTDBEntities db = new SAIGONPOSTDBEntities();
 
         [HttpGet]
-        [EnableCors(origins: "*", headers: "*", methods: "*")]
-        public IHttpActionResult PhieuGui(string dateFrom, string dateTo, int? status = 0, string mailerid = "")
+        public ActionResult PhieuGui(string dateFrom, string dateTo, int? status = 0, string mailerid = "")
         {
 
             if (String.IsNullOrEmpty(dateFrom) || String.IsNullOrEmpty(dateTo))
@@ -81,24 +80,27 @@ namespace SGPHOOKAPI.Controllers
             }
 
             ReportUtils rUtils = new ReportUtils();
-            Stream stream = rUtils.GetReportStream(ReportPath.RptPhieuGui, mailer);
+            Stream stream = rUtils.GetReportStream(ReportPath.RptPhieuGui, mailer, ".pdf");
 
             //  return File(stream, "application/msword", mailerId + ".doc");
+            /*
             HttpResponseMessage result = new HttpResponseMessage(HttpStatusCode.OK);
             result.Content = new StreamContent(stream);
             result.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment");
-            result.Content.Headers.ContentDisposition.FileName = "phieugui.pdf";
-            result.Content.Headers.ContentType = new MediaTypeHeaderValue("application/pdf");
+            result.Content.Headers.ContentDisposition.FileName = "phieugui.doc";
+            result.Content.Headers.ContentType = new MediaTypeHeaderValue(rUtils.GetContentType(".doc"));
             result.Content.Headers.ContentLength = stream.Length;
             var response = ResponseMessage(result);
             return response;
+            */
+
+            return File(stream, "application/msword", "phieuin" + DateTime.Now.ToString("ddMMyyyyHHmmss") + ".pdf");
 
         }
 
 
         [HttpGet]
-        [EnableCors(origins: "*", headers: "*", methods: "*")]
-        public IHttpActionResult InMotPhieu(string mailerid = "")
+        public ActionResult InMotPhieu(string mailerid = "")
         {
 
             var item = db.MailerInfoes.Where(p => p.MailerID == mailerid).FirstOrDefault();
@@ -129,17 +131,24 @@ namespace SGPHOOKAPI.Controllers
             });
 
             ReportUtils rUtils = new ReportUtils();
-            Stream stream = rUtils.GetReportStream(ReportPath.RptPhieuGui, mailer);
+            Stream stream = rUtils.GetReportStream(ReportPath.RptPhieuGui, mailer, ".pdf");
 
             //  return File(stream, "application/msword", mailerId + ".doc");
+            /*
             HttpResponseMessage result = new HttpResponseMessage(HttpStatusCode.OK);
             result.Content = new StreamContent(stream);
             result.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment");
-            result.Content.Headers.ContentDisposition.FileName = "phieugui.pdf";
-            result.Content.Headers.ContentType = new MediaTypeHeaderValue("application/pdf");
+            result.Content.Headers.ContentDisposition.FileName = "phieugui.doc";
+
+            //result.Content.Headers.ContentType = new MediaTypeHeaderValue("application/pdf");
+            result.Content.Headers.ContentType = new MediaTypeHeaderValue(rUtils.GetContentType(".doc"));
+
             result.Content.Headers.ContentLength = stream.Length;
             var response = ResponseMessage(result);
             return response;
+
+    */
+            return File(stream, "application/msword", "phieuin" + DateTime.Now.ToString("ddMMyyyyHHmmss") + ".pdf");
 
         }
 

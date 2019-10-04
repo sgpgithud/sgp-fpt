@@ -42,7 +42,7 @@ export class DataService {
         return this.httpClient.get(APIURL + 'api/Report/PhieuGui?dateFrom=' + data.dateFrom + '&dateTo=' + data.dateTo + '&status=' + data.status, httpOption);
 
         */
-        return APIURL + 'api/Report/PhieuGui?dateFrom=' + data.dateFrom + '&dateTo=' + data.dateTo + '&status=' + data.status;
+        return APIURL + 'Report/PhieuGui?dateFrom=' + data.dateFrom + '&dateTo=' + data.dateTo + '&status=' + data.status;
     }
     printOneReports(data, mailerid) {
         /*
@@ -56,7 +56,7 @@ export class DataService {
 
         return this.httpClient.get(APIURL + 'api/Report/PhieuGui?dateFrom=' + data.dateFrom + '&dateTo=' + data.dateTo + '&status=' + data.status + '&mailerid=' + mailerid, httpOption);
 */
-        return APIURL + 'api/Report/InMotPhieu?mailerid=' + mailerid;
+        return APIURL + 'Report/InMotPhieu?mailerid=' + mailerid;
     }
     printExcels(data) {
         const token = 'bearer ' + getToken();
