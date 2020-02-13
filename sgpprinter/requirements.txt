@@ -1,4 +1,0 @@
-npm install @auth0/angular-jwt
-npm install jquery — save
-npm install @types/jquery --save-dev
-npm install ng2-pdfjs-viewer --save
