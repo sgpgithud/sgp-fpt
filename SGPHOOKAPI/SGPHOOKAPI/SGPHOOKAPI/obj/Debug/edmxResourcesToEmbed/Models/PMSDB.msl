@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PMSSGPDBModelStoreContainer" CdmEntityContainer="PMSSGPDBEntities">
+    <EntitySetMapping Name="MM_Distances">
+      <EntityTypeMapping TypeName="PMSSGPDBModel.MM_Distances">
+        <MappingFragment StoreEntitySet="MM_Distances">
+          <ScalarProperty Name="PostOfficeID" ColumnName="PostOfficeID" />
+          <ScalarProperty Name="ProvinceID" ColumnName="ProvinceID" />
+          <ScalarProperty Name="Distance" ColumnName="Distance" />
+          <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="MM_CallPrice_getMatrix_test" FunctionName="PMSSGPDBModel.Store.MM_CallPrice_getMatrix_test">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PMSSGPDBModel.MM_CallPrice_getMatrix_test_Result">
+          <ScalarProperty Name="PriceMatrixID" ColumnName="PriceMatrixID" />
+          <ScalarProperty Name="PostOfficeID" ColumnName="PostOfficeID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="EffectDateBegin" ColumnName="EffectDateBegin" />
+          <ScalarProperty Name="ZoneID" ColumnName="ZoneID" />
+          <ScalarProperty Name="EffectDateEnd" ColumnName="EffectDateEnd" />
+          <ScalarProperty Name="ApplyAllServiceType" ColumnName="ApplyAllServiceType" />
+          <ScalarProperty Name="ApplyAllCustomer" ColumnName="ApplyAllCustomer" />
+          <ScalarProperty Name="PriceMatrixType" ColumnName="PriceMatrixType" />
+          <ScalarProperty Name="PriceType" ColumnName="PriceType" />
+          <ScalarProperty Name="CurrencyID" ColumnName="CurrencyID" />
+          <ScalarProperty Name="RoundOff" ColumnName="RoundOff" />
+          <ScalarProperty Name="RoundType" ColumnName="RoundType" />
+          <ScalarProperty Name="Multiply" ColumnName="Multiply" />
+          <ScalarProperty Name="ExchangeRate" ColumnName="ExchangeRate" />
+          <ScalarProperty Name="NextValue" ColumnName="NextValue" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="ServiceTypeID" ColumnName="ServiceTypeID" />
+          <ScalarProperty Name="IncludeService" ColumnName="IncludeService" />
+          <ScalarProperty Name="RangeWeightByCust" ColumnName="RangeWeightByCust" />
+          <ScalarProperty Name="DistanceGroupID" ColumnName="DistanceGroupID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="MM_CallPrice_Test" FunctionName="PMSSGPDBModel.Store.MM_CallPrice_Test">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PMSSGPDBModel.MM_CallPrice_Test_Result">
+          <ScalarProperty Name="PriceMatrixID" ColumnName="PriceMatrixID" />
+          <ScalarProperty Name="RowIndex" ColumnName="RowIndex" />
+          <ScalarProperty Name="ColumnIndex" ColumnName="ColumnIndex" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="RangeWeightFrom" ColumnName="RangeWeightFrom" />
+          <ScalarProperty Name="RangeWeightTo" ColumnName="RangeWeightTo" />
+          <ScalarProperty Name="IsNext" ColumnName="IsNext" />
+          <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+          <ScalarProperty Name="IncludeService" ColumnName="IncludeService" />
+          <ScalarProperty Name="RangeWeightByCust" ColumnName="RangeWeightByCust" />
+          <ScalarProperty Name="DistanceGroupID" ColumnName="DistanceGroupID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

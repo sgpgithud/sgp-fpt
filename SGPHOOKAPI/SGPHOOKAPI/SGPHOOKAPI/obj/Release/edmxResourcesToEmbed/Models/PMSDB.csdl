@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PMSSGPDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="MM_Distances">
+    <Key>
+      <PropertyRef Name="PostOfficeID" />
+      <PropertyRef Name="ProvinceID" />
+    </Key>
+    <Property Name="PostOfficeID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProvinceID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Distance" Type="Double" Nullable="false" />
+    <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="PMSSGPDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="MM_Distances" EntityType="Self.MM_Distances" />
+    <FunctionImport Name="MM_CallPrice_getMatrix_test" ReturnType="Collection(PMSSGPDBModel.MM_CallPrice_getMatrix_test_Result)">
+      <Parameter Name="DocumentDate" Mode="In" Type="DateTime" />
+      <Parameter Name="PostOfficeID" Mode="In" Type="String" />
+      <Parameter Name="ServiceTypeID" Mode="In" Type="String" />
+      <Parameter Name="CustomerID" Mode="In" Type="String" />
+      <Parameter Name="ProvinceID" Mode="In" Type="String" />
+      <Parameter Name="DistanceID" Mode="In" Type="Int32" />
+      <Parameter Name="PriceMatrixType" Mode="In" Type="String" />
+      <Parameter Name="PriceType" Mode="In" Type="String" />
+      <Parameter Name="ZoneID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="MM_CallPrice_Test" ReturnType="Collection(PMSSGPDBModel.MM_CallPrice_Test_Result)">
+      <Parameter Name="PriceMatrixID" Mode="In" Type="String" />
+      <Parameter Name="DocumentDate" Mode="In" Type="DateTime" />
+      <Parameter Name="PostOfficeID" Mode="In" Type="String" />
+      <Parameter Name="ServiceTypeID" Mode="In" Type="String" />
+      <Parameter Name="CustomerID" Mode="In" Type="String" />
+      <Parameter Name="ProvinceID" Mode="In" Type="String" />
+      <Parameter Name="DistanceID" Mode="In" Type="Int32" />
+      <Parameter Name="PriceMatrixType" Mode="In" Type="String" />
+      <Parameter Name="PriceType" Mode="In" Type="String" />
+      <Parameter Name="ZoneID" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="MM_CallPrice_getMatrix_test_Result">
+    <Property Type="String" Name="PriceMatrixID" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="PostOfficeID" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="1" />
+    <Property Type="DateTime" Name="EffectDateBegin" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ZoneID" Nullable="true" MaxLength="15" />
+    <Property Type="DateTime" Name="EffectDateEnd" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="ApplyAllServiceType" Nullable="true" />
+    <Property Type="Boolean" Name="ApplyAllCustomer" Nullable="true" />
+    <Property Type="String" Name="PriceMatrixType" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="PriceType" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="CurrencyID" Nullable="true" MaxLength="15" />
+    <Property Type="Double" Name="RoundOff" Nullable="true" />
+    <Property Type="Int32" Name="RoundType" Nullable="true" />
+    <Property Type="Boolean" Name="Multiply" Nullable="false" />
+    <Property Type="Double" Name="ExchangeRate" Nullable="false" />
+    <Property Type="Double" Name="NextValue" Nullable="true" />
+    <Property Type="String" Name="CustomerID" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="ServiceTypeID" Nullable="true" MaxLength="3" />
+    <Property Type="Boolean" Name="IncludeService" Nullable="false" />
+    <Property Type="String" Name="RangeWeightByCust" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="DistanceGroupID" Nullable="true" MaxLength="15" />
+  </ComplexType>
+  <ComplexType Name="MM_CallPrice_Test_Result">
+    <Property Type="String" Name="PriceMatrixID" Nullable="false" MaxLength="15" />
+    <Property Type="Double" Name="RowIndex" Nullable="false" />
+    <Property Type="Double" Name="ColumnIndex" Nullable="false" />
+    <Property Type="Double" Name="Price" Nullable="true" />
+    <Property Type="Double" Name="RangeWeightFrom" Nullable="true" />
+    <Property Type="Double" Name="RangeWeightTo" Nullable="true" />
+    <Property Type="Boolean" Name="IsNext" Nullable="false" />
+    <Property Type="Boolean" Name="Percentage" Nullable="false" />
+    <Property Type="Boolean" Name="IncludeService" Nullable="false" />
+    <Property Type="String" Name="RangeWeightByCust" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="DistanceGroupID" Nullable="true" MaxLength="15" />
+  </ComplexType>
+</Schema>

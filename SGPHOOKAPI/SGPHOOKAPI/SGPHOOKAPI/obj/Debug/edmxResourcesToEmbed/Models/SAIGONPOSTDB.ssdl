@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SAIGONPOSTDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="PMSUser" Type="varchar" MaxLength="128" />
+    <Property Name="PostID" Type="varchar" MaxLength="128" />
+    <Property Name="CusID" Type="varchar" MaxLength="128" />
+    <Property Name="ZoneID" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="CustomerAddress">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="CusName" Type="nvarchar(max)" />
+    <Property Name="CusAddress" Type="nvarchar(max)" />
+    <Property Name="CusProvinceId" Type="nvarchar" MaxLength="128" />
+    <Property Name="CusPhone" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="CustomerPost">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="PostID" Type="varchar" MaxLength="15" />
+    <Property Name="PMSCusID" Type="varchar" MaxLength="128" />
+    <Property Name="GroupID" Type="varchar" MaxLength="15" />
+    <Property Name="ZoneID" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="District">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="LatiLongTude" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProvinceId" Type="int" Nullable="false" />
+    <Property Name="SortOrder" Type="int" />
+    <Property Name="IsPublished" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="DistrictPMS" Type="nvarchar" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="FPTVendorCode">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="VendorName" Type="nvarchar" MaxLength="1000" />
+    <Property Name="OrgCode" Type="varchar" MaxLength="128" />
+    <Property Name="ProvinceCode" Type="varchar" MaxLength="15" />
+    <Property Name="SGPPostOffice" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="MailerInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MailerID" Type="varchar" MaxLength="128" />
+    <Property Name="UserSend" Type="varchar" MaxLength="512" />
+    <Property Name="CustomerId" Type="varchar" MaxLength="128" />
+    <Property Name="ReceiverAddress" Type="nvarchar(max)" />
+    <Property Name="ReceiverName" Type="nvarchar" MaxLength="1000" />
+    <Property Name="ReceiverPhone" Type="nvarchar" MaxLength="512" />
+    <Property Name="ReceiverDistrict" Type="nvarchar" MaxLength="32" />
+    <Property Name="OrderContent" Type="nvarchar(max)" />
+    <Property Name="OrderNote" Type="nvarchar(max)" />
+    <Property Name="OrderWeight" Type="float" />
+    <Property Name="OrderQuality" Type="float" />
+    <Property Name="OrderService" Type="nvarchar" MaxLength="100" />
+    <Property Name="OrderType" Type="nvarchar" MaxLength="100" />
+    <Property Name="OrderWidth" Type="float" />
+    <Property Name="OrderHeight" Type="float" />
+    <Property Name="OrderLength" Type="float" />
+    <Property Name="OrderCode" Type="varchar" MaxLength="512" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="ModifyDate" Type="datetime" />
+    <Property Name="UserTake" Type="varchar" MaxLength="512" />
+    <Property Name="CurrentStatus" Type="int" />
+    <Property Name="StatusNotes" Type="nvarchar(max)" />
+    <Property Name="Price" Type="float" />
+    <Property Name="ServicePrice" Type="float" />
+    <Property Name="ReceiverProvince" Type="nvarchar" MaxLength="50" />
+    <Property Name="COD" Type="float" />
+    <Property Name="SGPStatus" Type="int" />
+    <Property Name="PostID" Type="varchar" MaxLength="128" />
+    <Property Name="SenderName" Type="nvarchar(max)" />
+    <Property Name="SenderAddress" Type="nvarchar(max)" />
+    <Property Name="SenderPhone" Type="nvarchar" MaxLength="512" />
+    <Property Name="SenderProvinceID" Type="varchar" MaxLength="128" />
+    <Property Name="SenderDistrictID" Type="varchar" MaxLength="128" />
+    <Property Name="PaymentType" Type="nvarchar" MaxLength="20" />
+    <Property Name="PriceCOD" Type="float" />
+    <Property Name="Dimension" Type="nvarchar" MaxLength="128" />
+    <Property Name="CommitmentDate" Type="nvarchar" MaxLength="128" />
+    <Property Name="SendToWavehoure" Type="int" />
+    <Property Name="ReceiverProvincePMS" Type="nvarchar" MaxLength="50" />
+    <Property Name="ReceiverDistrictPMS" Type="nvarchar" MaxLength="50" />
+    <Property Name="SenderProvinceIDPMS" Type="nvarchar" MaxLength="50" />
+    <Property Name="SenderDistrictIDPMS" Type="nvarchar" MaxLength="50" />
+    <Property Name="SendId" Type="nvarchar" MaxLength="50" />
+    <Property Name="EmployeeId" Type="nvarchar" MaxLength="128" />
+    <Property Name="EmployeeName" Type="nvarchar" MaxLength="1000" />
+    <Property Name="DeliveryTo" Type="nvarchar" MaxLength="1000" />
+    <Property Name="DeliveryDate" Type="nvarchar" MaxLength="128" />
+    <Property Name="DeliveryNote" Type="nvarchar" MaxLength="1000" />
+    <Property Name="EmployeePhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="CurrentPost" Type="nvarchar" MaxLength="100" />
+    <Property Name="SGPStatusName" Type="nvarchar" MaxLength="512" />
+    <Property Name="TakeDate" Type="datetime" />
+    <Property Name="SenderContactName" Type="nvarchar" MaxLength="1000" />
+    <Property Name="ReceiverContactName" Type="nvarchar" MaxLength="1000" />
+    <Property Name="SendAttachFilePartner" Type="bit" />
+    <Property Name="HasPrint" Type="bit" />
+  </EntityType>
+  <EntityType Name="OrderItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderId" Type="bigint" />
+    <Property Name="PackagetName" Type="nvarchar(max)" />
+    <Property Name="PackageWeight" Type="float" />
+    <Property Name="PackageDimension" Type="nvarchar" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="PartnerAccount">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PartnerName" Type="nvarchar" MaxLength="128" />
+    <Property Name="PartnerCode" Type="nvarchar" MaxLength="128" />
+    <Property Name="Token" Type="nvarchar" MaxLength="1000" />
+    <Property Name="APIUrl" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="PostOffice">
+    <Key>
+      <PropertyRef Name="PostOfficeID" />
+    </Key>
+    <Property Name="PostOfficeID" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="PostOfficeName" Type="nvarchar" MaxLength="256" />
+    <Property Name="Address" Type="nvarchar" MaxLength="1000" />
+    <Property Name="ZoneID" Type="nchar" MaxLength="10" />
+    <Property Name="ProvinceID" Type="nchar" MaxLength="10" />
+    <Property Name="Phone" Type="nchar" MaxLength="20" />
+    <Property Name="DistrictID" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Province">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="20" />
+    <Property Name="TelephoneCode" Type="int" />
+    <Property Name="ZipCode" Type="nvarchar" MaxLength="20" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+    <Property Name="CountryCode" Type="nvarchar" MaxLength="2" />
+    <Property Name="SortOrder" Type="int" />
+    <Property Name="IsPublished" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="ProvincePMS" Type="varchar" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="StatusID" />
+    </Key>
+    <Property Name="StatusID" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="StatusName" Type="nchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="TrackingOrder">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderId" Type="bigint" />
+    <Property Name="Status" Type="int" />
+    <Property Name="StatusName" Type="nvarchar" MaxLength="1000" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CurrentPost" Type="nchar" MaxLength="10" />
+    <Property Name="ProvinceId" Type="nchar" MaxLength="10" />
+    <Property Name="DistrictId" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="get_mailer_fpt" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="orderid" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="get_mailers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="fdate" Type="varchar" Mode="In" />
+    <Parameter Name="tdate" Type="varchar" Mode="In" />
+    <Parameter Name="mailerid" Type="varchar" Mode="In" />
+    <Parameter Name="cusid" Type="varchar" Mode="In" />
+    <Parameter Name="postId" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="SAIGONPOSTDBModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerAddress" EntityType="Self.CustomerAddress" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerPost" EntityType="Self.CustomerPost" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="District" EntityType="Self.District" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FPTVendorCode" EntityType="Self.FPTVendorCode" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MailerInfo" EntityType="Self.MailerInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderItem" EntityType="Self.OrderItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PartnerAccount" EntityType="Self.PartnerAccount" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PostOffice" EntityType="Self.PostOffice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Province" EntityType="Self.Province" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TrackingOrder" EntityType="Self.TrackingOrder" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

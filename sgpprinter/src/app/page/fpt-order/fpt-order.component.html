@@ -1,0 +1,223 @@
+<app-topbar></app-topbar>
+
+<div class="content">
+
+  <div class="container">
+    <div class="portlet portlet-boxed">
+
+      <div class="portlet-header">
+        <h4 class="portlet-title">
+          Quản lý đơn hàng FPT
+        </h4>
+      </div>
+
+      <div class="portlet-body">
+
+        <form [formGroup]="searchForm" (ngSubmit)="findMailer()">
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label>Từ ngày</label>
+                <input type="text" class="form-control" [dropSpecialCharacters]="false" mask="00/00/0000"
+                  formControlName="dateFrom" />
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label>Đến ngày</label>
+                <input type="text" class="form-control" [dropSpecialCharacters]="false" mask="00/00/0000"
+                  formControlName="dateTo" />
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label>Mã CG</label>
+                <input type="text" class="form-control" formControlName="mailerid" />
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label>Trạng thái</label>
+                <select class="form-control" formControlName="status" (change)="changeStatus()">
+                  <option *ngFor="let item of OrderStatus" value="{{item.code}}">{{item.name}}</option>
+                </select>
+              </div>
+
+              <div class="form-group" *ngIf="showSynButton ===1">
+                <label>Trạng thái phát</label>
+                <select class="form-control" formControlName="deliveryStatus">
+                  <option *ngFor="let item of DeliveryStatus" value="{{item.code}}">{{item.name}}</option>
+                </select>
+              </div>
+              <div class="form-group" *ngIf="showSynButton ===1">
+                <button type="button" (click)="synPMS()" class="btn btn-success">Đồng bộ PMS</button><br />
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Tìm dữ liệu</button> <br />
+              </div>
+            </div>
+
+          </div>
+
+        </form>
+
+        <div class="portlet portlet-boxed">
+
+          <div class="portlet-header">
+            <h4 class="portlet-title">
+              Danh sách đơn &nbsp;&nbsp; <button type="button" (click)="printReport()" *ngIf="showSynButton ===1"
+                class="btn btn-warning btn-xs">In toàn bộ
+                phiếu</button> &nbsp;&nbsp;&nbsp;<button type="button" (click)="printExcels()"
+                *ngIf="showSynButton ===1" class="btn btn-success btn-xs">Xuất Excel</button>
+            </h4>
+          </div> <!-- /.portlet-header -->
+
+          <div class="portlet-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>STT</th>
+                    <th>Số phiếu</th>
+                    <th>Thông tin hàng</th>
+                    <th>Thông tin phát</th>
+                    <th>#</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of orders; index as i">
+                    <td style="width: 10%">{{(i + 1)}}
+                    </td>
+                    <td style="width: 30%">
+                      <strong>SGP CG: </strong> {{item.MailerID}} <br />
+                      <strong>FPT code: </strong> {{item.OrderCode}} <br />
+                      <strong>Ngày nhận: </strong> {{item.CreateDate}} <br />
+                      <strong>Bưu cục: </strong> {{item.PostID}} <br />
+                      <strong>Người nhận: </strong> {{item.ReceiverName}} <br />
+                      <strong>Đ/C phát: </strong> {{item.ReceiverAddress}} <br />
+                      <strong>SDT: </strong> {{item.ReceiverPhone}} <br />
+                      <strong>Tỉnh thành: </strong> {{item.ReceiverProvincePMS}}
+                    </td>
+
+                    <td style="width: 30%">
+                      <strong>Dịch vụ: </strong> {{item.OrderService}} <br />
+                      <strong>Trọng lượng: </strong> {{item.OrderWeight}} Gram <br />
+                      <strong>Tiền thu: </strong> {{item.COD | currency:' VND'}} <br />
+                      <strong>Giá: </strong> {{item.Price | currency:' VND'}} <br />
+                      <strong>Phụ phí: </strong> {{item.ServicePrice | currency:'VND '}} <br />
+                      <strong>Ghi chú: </strong> {{item.OrderNote}}<br />
+
+                    </td>
+                    <td style="width: 20%">
+                      <strong>Trạng thái: </strong> {{item.SGPStatusName}}<br />
+                      <strong>Nhân viên phát: </strong> {{item.EmployeeName}}<br />
+                      <strong>Người nhận: </strong> {{item.DeliveryTo}}<br />
+                      <strong>Ngày phát: </strong> {{item.DeliveryDate}}<br />
+                      <strong>Ghi chú: </strong> {{item.DeliveryNote}}
+                    </td>
+                    <td style="width: 10%">
+
+                      <button class="btn btn-success btn-xs" *ngIf="item.CurrentStatus === 0"
+                        (click)="sendAccept(1, item.Id, i)">Xác nhận đơn</button><br /><br />
+                      <button class="btn btn-warning btn-xs" *ngIf="item.CurrentStatus === 0"
+                        (click)="sendAccept(0, item.Id, i)">Không nhận hàng</button><br /><br />
+                      <a class="btn btn-primary btn-xs" (click)="printOneReport(item.Id)"
+                        *ngIf="item.CurrentStatus === 3">In phiếu</a><br /><br /><br />
+                      <button class="btn btn-success btn-xs" *ngIf="item.CurrentStatus === 3 && item.HasPrint != true"
+                        (click)="showUpdateOrder(item)">Chỉnh sửa đơn hàng</button><br />
+                    </td>
+                  </tr>
+
+                </tbody>
+
+              </table>
+            </div>
+
+          </div> <!-- /.portlet-body -->
+
+        </div>
+
+      </div> <!-- /.portlet-body -->
+
+    </div>
+  </div>
+
+</div>
+
+<!-- Modal -->
+<div id="updateOrderModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content" *ngIf="orderUpdate">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cập nhật đơn hàng: {{orderUpdate.mailerid}}</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-xs-12">
+            <p>Địa chỉ nhận: {{orderUpdate.address}}</p>
+          </div>
+
+          <div class="col-xs-6">
+            <div class="form-group">
+              <label>Nhập mã CG</label>
+              <input type="text" class="form-control" [(ngModel)]="orderUpdate.mailerid" />
+            </div>
+
+            <div class="form-group">
+              <label>Trọng lượng</label>
+              <input type="number" class="form-control" [(ngModel)]="orderUpdate.weight" />
+            </div>
+
+            <div class="form-group">
+              <label>Số lượng</label>
+              <input type="number" class="form-control" [(ngModel)]="orderUpdate.quantity" />
+            </div>
+            <div class="form-group">
+              <label>Tỉnh thành người nhận hàng</label>
+              <select class="form-control" [(ngModel)]="orderUpdate.provincePMS" (change)="findDistrict()">
+                <option *ngFor="let item of provinces" value="{{item.ProvincePMS}}">{{item.Name}}</option>
+              </select>
+            </div>
+
+          </div>
+
+          <div class="col-xs-6">
+            <div class="form-group">
+              <label>Ghi chú nội dung hàng</label>
+              <input type="text" class="form-control" [(ngModel)]="orderUpdate.notes" />
+            </div>
+
+            <div class="form-group">
+              <label>Loại hàng</label>
+              <select class="form-control" [(ngModel)]="orderUpdate.orderType">
+                <option *ngFor="let item of orderTypes" value="{{item.code}}">{{item.name}}</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Dịch vụ</label>
+              <select class="form-control" [(ngModel)]="orderUpdate.orderService">
+                <option *ngFor="let item of orderSevices" value="{{item.code}}">{{item.name}}</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Giá phụ phí</label>
+              <input type="number" class="form-control" [(ngModel)]="orderUpdate.priceService" />
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" (click)="updateOrder()">Cập nhật</button>
+      </div>
+    </div>
+
+  </div>
+</div>

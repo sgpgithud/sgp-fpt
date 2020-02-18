@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PMSSGPDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="MM_Distances">
+    <Key>
+      <PropertyRef Name="PostOfficeID" />
+      <PropertyRef Name="ProvinceID" />
+    </Key>
+    <Property Name="PostOfficeID" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="ProvinceID" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Distance" Type="float" Nullable="false" />
+    <Property Name="LastEditDate" Type="datetime" />
+    <Property Name="CreationDate" Type="datetime" />
+  </EntityType>
+  <Function Name="MM_CallPrice_getMatrix_test" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DocumentDate" Type="datetime" Mode="In" />
+    <Parameter Name="PostOfficeID" Type="varchar" Mode="In" />
+    <Parameter Name="ServiceTypeID" Type="varchar" Mode="In" />
+    <Parameter Name="CustomerID" Type="varchar" Mode="In" />
+    <Parameter Name="ProvinceID" Type="varchar" Mode="In" />
+    <Parameter Name="DistanceID" Type="int" Mode="In" />
+    <Parameter Name="PriceMatrixType" Type="varchar" Mode="In" />
+    <Parameter Name="PriceType" Type="varchar" Mode="In" />
+    <Parameter Name="ZoneID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="MM_CallPrice_Test" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PriceMatrixID" Type="varchar" Mode="In" />
+    <Parameter Name="DocumentDate" Type="datetime" Mode="In" />
+    <Parameter Name="PostOfficeID" Type="varchar" Mode="In" />
+    <Parameter Name="ServiceTypeID" Type="varchar" Mode="In" />
+    <Parameter Name="CustomerID" Type="varchar" Mode="In" />
+    <Parameter Name="ProvinceID" Type="varchar" Mode="In" />
+    <Parameter Name="DistanceID" Type="int" Mode="In" />
+    <Parameter Name="PriceMatrixType" Type="varchar" Mode="In" />
+    <Parameter Name="PriceType" Type="varchar" Mode="In" />
+    <Parameter Name="ZoneID" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="PMSSGPDBModelStoreContainer">
+    <EntitySet Name="MM_Distances" EntityType="Self.MM_Distances" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

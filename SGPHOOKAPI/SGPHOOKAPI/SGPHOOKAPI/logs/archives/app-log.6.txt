@@ -1,0 +1,80 @@
+2019-12-14 00:27:57.1232|INFO|SGPHOOKAPI.Controllers.SGPHubController|Send GetOrderFPTByStatus...
+2019-12-14 00:29:30.3324|INFO|SGPHOOKAPI.Controllers.SGPHubController|Send GetOrderFPTByStatus...
+2019-12-14 00:29:42.7635|INFO|SGPHOOKAPI.Controllers.FPTHookController|Send GetOrderFPTByStatus...
+2019-12-14 00:30:12.5012|INFO|SGPHOOKAPI.Controllers.FPTHookController|Send GetOrderFPTByStatus...
+2019-12-14 16:08:48.4164|INFO|SGPHOOKAPI.Controllers.SGPHubController|Send order...
+2019-12-14 16:08:54.3474|INFO|SGPHOOKAPI.Controllers.SGPHubController|{"token_key":"cHNkQHNwdC52bjpBYmNAMTIzNA==","order_number":"PSD19-ND-C3001","waybill_number":null,"no_packs":"1","package_weight":"0.52","service_type":"ST","cod":"0","order_note":"Total quantity: 1","sender_address":{"full_address":"140-142, du?ng A3, KDC Hung Phú 1, Qu?n Ca´i Rang, Thành Ph? C?n Tho, Vi?t Nam","province_area_code":"24","district_area_code":"261","ward_area_code":"5997","contact_phone":"(0292) 3918 622","contact_name":"C?n Tho"},"receiver_address":{"full_address":"S? 305A, du?ng Tr?n Hung Ð?o, Thành Ph? V? Thanh, T?nh H?u Giang, Vi?t Nam","province_area_code":"25","district_area_code":"122","ward_area_code":"6042","contact_phone":"Nguy?n Minh Quân-01694739325-001082PO1912040674","contact_name":"Chi Nhánh Công Ty C? Ph?n Th? Gi?i Di Ð?ng"},"orderItem":[{"product_name":"ZA410065VN","package_weight":"0.52","package_dimension":"22.50x4.30x13.80"}]}
+2019-12-14 16:09:29.4432|ERROR|SGPHOOKAPI.Controllers.SGPHubController|Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+2019-12-14 16:09:32.0672|INFO|SGPHOOKAPI.Controllers.SGPHubController|Send order...
+2019-12-14 16:09:33.6530|INFO|SGPHOOKAPI.Controllers.SGPHubController|{"token_key":"cHNkQHNwdC52bjpBYmNAMTIzNA==","order_number":"PSD19-ND-C3001","waybill_number":null,"no_packs":"1","package_weight":"0.52","service_type":"ST","cod":"0","order_note":"Total quantity: 1","sender_address":{"full_address":"140-142, du?ng A3, KDC Hung Phú 1, Qu?n Ca´i Rang, Thành Ph? C?n Tho, Vi?t Nam","province_area_code":"24","district_area_code":"261","ward_area_code":"5997","contact_phone":"(0292) 3918 622","contact_name":"C?n Tho"},"receiver_address":{"full_address":"S? 305A, du?ng Tr?n Hung Ð?o, Thành Ph? V? Thanh, T?nh H?u Giang, Vi?t Nam","province_area_code":"25","district_area_code":"122","ward_area_code":"6042","contact_phone":"Nguy?n Minh Quân-01694739325-001082PO1912040674","contact_name":"Chi Nhánh Công Ty C? Ph?n Th? Gi?i Di Ð?ng"},"orderItem":[{"product_name":"ZA410065VN","package_weight":"0.52","package_dimension":"22.50x4.30x13.80"}]}
+2019-12-14 16:13:20.0472|ERROR|SGPHOOKAPI.Controllers.SGPHubController|Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+2019-12-14 16:13:25.5952|INFO|SGPHOOKAPI.Controllers.SGPHubController|Send order...
+2019-12-14 16:13:28.9488|INFO|SGPHOOKAPI.Controllers.SGPHubController|{"token_key":"cHNkQHNwdC52bjpBYmNAMTIzNA==","order_number":"PSD19-ND-C3001","waybill_number":null,"no_packs":"1","package_weight":"0.52","service_type":"ST","cod":"0","order_note":"Total quantity: 1","sender_address":{"full_address":"140-142, du?ng A3, KDC Hung Phú 1, Qu?n Ca´i Rang, Thành Ph? C?n Tho, Vi?t Nam","province_area_code":"24","district_area_code":"261","ward_area_code":"5997","contact_phone":"(0292) 3918 622","contact_name":"C?n Tho"},"receiver_address":{"full_address":"S? 305A, du?ng Tr?n Hung Ð?o, Thành Ph? V? Thanh, T?nh H?u Giang, Vi?t Nam","province_area_code":"25","district_area_code":"122","ward_area_code":"6042","contact_phone":"Nguy?n Minh Quân-01694739325-001082PO1912040674","contact_name":"Chi Nhánh Công Ty C? Ph?n Th? Gi?i Di Ð?ng"},"orderItem":[{"product_name":"ZA410065VN","package_weight":"0.52","package_dimension":"22.50x4.30x13.80"}]}
+2019-12-14 16:28:22.7080|INFO|SGPHOOKAPI.Controllers.SGPHubController|Send order...
+2019-12-14 16:28:25.6621|INFO|SGPHOOKAPI.Controllers.SGPHubController|{
+  "token_key": "cHNkQHNwdC52bjpBYmNAMTIzNA==",
+  "order_number": "PSD19-ND-C3001",
+  "waybill_number": null,
+  "no_packs": "1",
+  "package_weight": "0.52",
+  "service_type": "ST",
+  "cod": "0",
+  "order_note": "Total quantity: 1",
+  "sender_address": {
+    "full_address": "140-142, du?ng A3, KDC Hung Phú 1, Qu?n Cái Rang, Thành Ph? C?n Tho, Vi?t Nam",
+    "province_area_code": "24",
+    "district_area_code": "261",
+    "ward_area_code": "5997",
+    "contact_phone": "(0292) 3918 622",
+    "contact_name": "C?n Tho"
+  },
+  "receiver_address": {
+    "full_address": "S? 305A, du?ng Tr?n Hung Ð?o, Thành Ph? V? Thanh, T?nh H?u Giang, Vi?t Nam",
+    "province_area_code": "25",
+    "district_area_code": "122",
+    "ward_area_code": "6042",
+    "contact_phone": "Nguy?n Minh Quân-01694739325-001082PO1912040674",
+    "contact_name": "Chi Nhánh Công Ty C? Ph?n Th? Gi?i Di Ð?ng"
+  },
+  "orderItem": [
+    {
+      "product_name": "ZA410065VN",
+      "package_weight": "0.52",
+      "package_dimension": "22.50x4.30x13.80"
+    }
+  ]
+}
+2019-12-14 16:30:33.0723|INFO|SGPHOOKAPI.Controllers.SGPHubController|Send order...
+2019-12-14 16:30:36.7917|INFO|SGPHOOKAPI.Controllers.SGPHubController|{
+  "token_key": "cHNkQHNwdC52bjpBYmNAMTIzNA==",
+  "order_number": "PSD19-ND-C2999",
+  "waybill_number": null,
+  "no_packs": "1",
+  "package_weight": "0.52",
+  "service_type": "ST",
+  "cod": "0",
+  "order_note": "Total quantity: 1",
+  "sender_address": {
+    "full_address": "140-142, du?ng A3, KDC Hung Phú 1, Qu?n Cái Rang, Thành Ph? C?n Tho, Vi?t Nam",
+    "province_area_code": "24",
+    "district_area_code": "261",
+    "ward_area_code": "5997",
+    "contact_phone": "(0292) 3918 622",
+    "contact_name": "C?n Tho"
+  },
+  "receiver_address": {
+    "full_address": "S? 443, du?ng Tr?n Phú, Thành Ph? B?c Liêu, T?nh B?c Liêu, Vi?t Nam",
+    "province_area_code": "28",
+    "district_area_code": "528",
+    "ward_area_code": "6155",
+    "contact_phone": "Loan-0939808771-000579PO1912040743",
+    "contact_name": "Chi Nhánh Công Ty C? Ph?n Th? Gi?i Di Ð?ng"
+  },
+  "orderItem": [
+    {
+      "product_name": "ZA410065VN",
+      "package_weight": "0.52",
+      "package_dimension": "22.50x4.30x13.80"
+    }
+  ]
+}
